@@ -1,7 +1,8 @@
-package com.tn.bundlebooster
+package com.tn.bundlebooster.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tn.bundlebooster.R
 
 class MainActivity : AppCompatActivity() {
 
