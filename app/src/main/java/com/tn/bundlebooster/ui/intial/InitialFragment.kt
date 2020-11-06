@@ -27,7 +27,7 @@ class InitialFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val request =
-            permissionsBuilder(Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS).build()
+            permissionsBuilder(Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS).build()
 
         request.send()
 

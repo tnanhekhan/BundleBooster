@@ -1,6 +1,7 @@
 package com.tn.bundlebooster.ui.message
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.view.LayoutInflater
@@ -10,9 +11,6 @@ import androidx.fragment.app.Fragment
 import com.tn.bundlebooster.R
 import kotlinx.android.synthetic.main.fragment_message.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class MessageFragment : Fragment() {
 
     override fun onCreateView(
@@ -27,15 +25,11 @@ class MessageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val smsManager = SmsManager.getDefault()
-        
-        sendButton.setOnClickListener {
-            val phoneNo = "1280"
-            val message = messageEditText.text.toString()
-            val amount = messageNumberEditText.text.toString().toInt()
+        val smsIntent = Intent(context, SmsService::class.java)
+        context?.startService(smsIntent)
 
-            for (i in 1..amount) {
-                smsManager.sendTextMessage(phoneNo, null, message, null, null)
-            }
+        sendButton.setOnClickListener {
+            smsManager.sendTextMessage("1280", null, "NOG 1GB", null, null)
         }
     }
 }
